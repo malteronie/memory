@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './MemoryGame.css';
+import './memory.css';
 
 const MemoryGame = () => {
   // Définir les valeurs uniques des cartes
