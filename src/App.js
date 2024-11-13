@@ -16,8 +16,8 @@ const MemoryGame = () => {
     <div className="memory-game">
       <h1>Jeu de Memory</h1>
       <div className="grid">
-        {cards.map((index) => (
-          <div key={index} className="card">
+        {initialCards.map((id) => (
+          <div key={id} className="card">
             ?
           </div>
         ))}
