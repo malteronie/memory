@@ -1,0 +1,24 @@
+.card {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  user-select: none;
+  background-color: #4caf50;
+  transition: transform 0.3s;
+}
+.card-list{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+.color-card {
+  margin: 10px;
+  padding: 10px;
+  background-color: #4caf50;
+  border: solid black 5px;
+}

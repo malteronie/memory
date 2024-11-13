@@ -1,29 +1,16 @@
-import React, { useState } from 'react';
-import './memory.css';
+import React from 'react';
+import List from './CardList.jsx';
+import './card.css';
 
-const MemoryGame = () => {
-  // Définir les valeurs uniques des cartes
-  const uniqueCards = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-  
-  // Créer un tableau de cartes en doublant chaque valeur unique
-  const initialCards = [...uniqueCards, ...uniqueCards]
-    .map(value => ({ value, flipped: false })) // Ajouter la propriété flipped
-    .sort(() => Math.random() - 0.5); // Mélanger les cartes
 
-  // Utiliser l'état pour stocker les cartes
-
+function App() {
   return (
-    <div className="memory-game">
+    <div className="App">
       <h1>Jeu de Memory</h1>
-      <div className="grid">
-        {initialCards.map((id) => (
-          <div key={id} className="card">
-            ?
-          </div>
-        ))}
-      </div>
+      
+      <List/>
     </div>
   );
-};
+}
 
-export default MemoryGame;
+export default App;
