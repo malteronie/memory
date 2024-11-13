@@ -11,15 +11,14 @@ const MemoryGame = () => {
     .sort(() => Math.random() - 0.5); // Mélanger les cartes
 
   // Utiliser l'état pour stocker les cartes
-  const [cards] = useState(initialCards);
 
   return (
     <div className="memory-game">
       <h1>Jeu de Memory</h1>
       <div className="grid">
-        {cards.map((card, index) => (
+        {cards.map((index) => (
           <div key={index} className="card">
-            ❓
+            ?
           </div>
         ))}
       </div>
