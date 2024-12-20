@@ -1,40 +1,38 @@
+
 //Définir une carte
-import React, { useState, useEffect } from 'react';
+
 import './card.css';
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-export default function Card ({value, etat, trouve}) {
-    const [showCard, setVal] = useState(etat)
-    var test = false
-    const clickButton=()=>{
-        setVal(showCard ===false ? true:false);
-        
+const Card = ({ value, index, onCardFlip, flippedCards }) => {
+  // Gérer l'état de chaque carte individuellement (retournée ou non)
+  const [flipped, setFlipped] = useState(false);
+
+  const handleCardClick = () => {
+    if (!flipped) {  // Si la carte n'est pas retournée
+      setFlipped(true);  // Marquer la carte comme retournée
+      onCardFlip(index, value);  // Appeler la fonction pour signaler que la carte a été retournée
     }
-    // const isMatched=()=>{
-       useEffect(()=>{
-            if (showCard===true){
-                if (test==true){
-                    console.log("salut")
-                    test = false
-                } else {
-                    test=true
-                    console.log("ok")
-                }
-                console.log(value)
-                
-            } else {
-                console.log("hi")
-            }
-        })
-    // }
+  };
+
+  // Afficher un message dans la console chaque fois que l'état de la carte change
+  useEffect(() => {
+    if (flipped) {
+      console.log("Carte retournée : ${value}");
+    }
+  }, [flipped, value]);  // Déclenchement de useEffect lorsque l'état flipped change
 
 
-    return (
-        <div className="card">
-            <div>{value}</div>
-            <button onClick={() => clickButton()}>{showCard} coucou </button>
-        </div>
-    )
-}
+  return (
+    <div className="card" onClick={handleCardClick}>
+      {flipped ? value : "?"}
+    </div>
+  );
+};
+
+export default Card;
 
 
 
