@@ -12,8 +12,8 @@ const Game = () => {
   const [isStarted, setStarted] = useState(false);
 
   const gameStart = () => {
-    const shuffledCards = [...cardList, ...cardList].sort(() => Math.random() - 0.5);
-    setDubbleCard(shuffledCards);
+    const randomCards = [...cardList, ...cardList].sort(() => Math.random() - 0.5);
+    setDubbleCard(randomCards);
     setStarted(true);
     setFlippedCards([]);
     setMatchCard([]);
