@@ -10,7 +10,7 @@ const Card = ({ value, index, onCardFlip, flipped }) => {
 
   return (
     <div className="card" onClick={handleCardClick}>
-      {flipped ? value : "?"}
+      {flipped ? value : ""}
     </div>
   );
 };

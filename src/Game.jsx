@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CardList from './CardList.jsx';
 
 const Game = () => {
-  const cardList = [0, 1, 2, 4];
+  const cardList = [1, 2, 3, 4];
 
   const [dubbleCard, setDubbleCard] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);

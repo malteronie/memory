@@ -11,7 +11,7 @@ const CardList = ({ cards, isFlipped, onCardFlip, isStarted }) => {
             className="color-card"
             key={index}
             style={{
-              backgroundImage: isFlipped(index) ? '': `url(${process.env.PUBLIC_URL + '/img/dos3.jpg'})`,}}>
+              backgroundImage: isFlipped(index) ? '': `url(${process.env.PUBLIC_URL + '/img/dos2.jpg'})`,}}>
             <Card
               value={value}
               index={index}

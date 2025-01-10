@@ -20,14 +20,13 @@
   grid-template-columns: repeat(4,1fr);
 }
 .color-card {
-  width: 252px;
+  width: 250px;
   height: 352px;
   margin: 10px;
   background-color: white;
   background-size: contain;
+  border-radius: 15px;
   background-repeat: no-repeat;
-  /* background-color: blue; */
-  border: solid black 5px;
 }
 .button{
   width: 110px;
