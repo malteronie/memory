@@ -3,31 +3,46 @@ import './card.css';
 import { useState } from 'react';
 
 const cardList = [0, 1, 2, 4];
-// Doubler les cartes
-const dubbleCard = [...cardList, ...cardList].sort(() => Math.random() - 0.5); // Mélanger les cartes
+
+const dubbleCard = [...cardList, ...cardList].sort(() => Math.random() - 0.5); 
 
 function List() {
-  const [flippedCards, setFlippedCards] = useState([]); // Cartes retournées temporairement
-  const [matchCard, setMatchCard] = useState([]); // Cartes trouvées
+  const [flippedCards, setFlippedCards] = useState([]); 
+  const [matchCard, setMatchCard] = useState([]); 
   const [texte, setTexte] = useState(false);
+  const [result, setResult] = useState(false)
 
+  const [isStarted, setStarted] =useState(false)
+
+  const gameStart = () => {
+    setStarted(true)
+  }
   const onCardFlip = (index, value) => {
     setTexte(false);
+    if(isStarted){
 
+    
     if (flippedCards.length === 0) {
-      // Première carte retournée
       setFlippedCards([{ index, value }]);
     } else if (flippedCards.length === 1) {
-      // Deuxième carte retournée
       const newFlippedCards = [...flippedCards, { index, value }];
       setFlippedCards(newFlippedCards);
 
       if (newFlippedCards[0].value === newFlippedCards[1].value) {
-        // Si les deux cartes correspondent
         const matchCardUpdated = [...matchCard, newFlippedCards[0].index, newFlippedCards[1].index];
         setMatchCard(matchCardUpdated);
         setFlippedCards([]);
-        setTexte(true); // Afficher le message de match
+        setTexte(true); 
+
+        if (matchCardUpdated.length===8){
+          setResult(true)
+          setTexte(false)
+          setTimeout(() => {
+            setStarted(false)
+            setMatchCard([]); 
+          }, 1000);
+          
+        }
       } else {
 
         setTimeout(() => {
@@ -35,16 +50,15 @@ function List() {
         }, 1000);
       }
     }
+  }
   };
 
   const isFlipped = (index) => {
-    // Vérifier dans flippedCards
     for (let i = 0; i < flippedCards.length; i++) {
       if (flippedCards[i].index === index) {
         return true;
       }
     }
-    // Vérifier dans matchCard
     for (let i = 0; i < matchCard.length; i++) {
       if (matchCard[i] === index) {
         return true;
@@ -55,16 +69,18 @@ function List() {
 
   return (
     <div className="card-list">
-      {dubbleCard.map((value, index) => (
-        <div className="color-card" key={index}>
+      {!isStarted && <center><button className='button' onClick={gameStart}>Nouvelle Partie</button></center>}
+      {isStarted && dubbleCard.map((value, index) => (
+        <div className="color-card" key={index} style={{backgroundImage: isFlipped(index) ?  "" : `url(${process.env.PUBLIC_URL + '/img/dos3.jpg'})` }}> 
           <Card
             value={value}
             index={index}
             flipped={isFlipped(index)}
             onCardFlip={onCardFlip}
-          />
+            />
         </div>
       ))}
+      {result && <div >Bravo, tu as trouvé toutes les pairs</div>}
       {texte && <div>Carte matchée</div>}
     </div>
   );

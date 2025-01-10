@@ -4,7 +4,7 @@ import React from 'react';
 const Card = ({ value, index, onCardFlip, flipped }) => {
   const handleCardClick = () => {
     if (!flipped) {
-      onCardFlip(index, value); // Notifier le parent du clic
+      onCardFlip(index, value); 
     }
   };
 
