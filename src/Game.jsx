@@ -67,7 +67,7 @@ const Game = () => {
   };
 
   return (
-    <div className="game">
+    <div className="game" style={{width:'100%', height:'100%'}}>
       {!isStarted && (
         <center>
           <button className="button" onClick={gameStart}>

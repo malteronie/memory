@@ -6,10 +6,12 @@ import './App.css'
 
 function App() {
   return (
+    <header className="App-header">
     <div className="App">
       <h1>Memory</h1>
       <Game/>
     </div>
+    </header>
   );
 }
 

@@ -1,13 +1,25 @@
 .App {
+  width: 100%;
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
   text-align: center;
-  color: black
+  color: black;  
+  min-height: 100vh;
+  background-image: url('fond_memory.webp');
+  background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
+  background-position: center;
+  background-repeat: no-repeat;
 }
-body{
-  background-color: grey;
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-logo {
-  height: 40vmin;
   pointer-events: none;
 }
 
@@ -17,16 +29,6 @@ body{
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -39,4 +41,11 @@ body{
   to {
     transform: rotate(360deg);
   }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
